@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ShippingRatesRequest>
+    <!--This is Rate Element-->
+    <UserCredential>
+        <!--This is UserCredential Element-->
+        <Key>********</Key>
+        <Pwd>********</Pwd>
+    </UserCredential>
+    <PackageInfos>
+        <PackageItemInfo>
+            <Length>10.000</Length>
+            <Width>11.000</Width>
+            <Height>12.000</Height>
+            <Weight>20.000</Weight>
+            <Insurance>0.000</Insurance>
+        </PackageItemInfo>
+        <PackageItemInfo>
+            <Length>20.000</Length>
+            <Width>21.000</Width>
+            <Height>22.000</Height>
+            <Weight>25.000</Weight>
+            <Insurance>0.000</Insurance>
+        </PackageItemInfo>
+        <PackageItemInfo>
+            <Length>15.000</Length>
+            <Width>16.000</Width>
+            <Height>17.000</Height>
+            <Weight>10.000</Weight>
+            <Insurance>0.000</Insurance>
+        </PackageItemInfo>
+    </PackageInfos>
+    <OriginalAddress>
+        <PersonName>Donovan</PersonName>
+        <CompanyName>ANL</CompanyName>
+        <PhoneNumber>6262258083</PhoneNumber>
+        <StreetLines>
+            <string>16018 Adelante st Suite D</string>
+        </StreetLines>
+        <City>Irwindale</City>
+        <StateOrProvinceCode>CA</StateOrProvinceCode>
+        <PostalCode>91702</PostalCode>
+        <CountryCode>US</CountryCode>
+        <CountryName/>
+    </OriginalAddress>
+    <DestinationAddress>
+        <PersonName>Alex</PersonName>
+        <CompanyName>ANL</CompanyName>
+        <PhoneNumber>8000000000</PhoneNumber>
+        <StreetLines>
+            <string>401 Independence Rd</string>
+        </StreetLines>
+        <City>FLORENCE</City>
+        <StateOrProvinceCode>NJ</StateOrProvinceCode>
+        <PostalCode>08518</PostalCode>
+        <CountryCode>US</CountryCode>
+        <CountryName/>
+    </DestinationAddress>
+</ShippingRatesRequest>
