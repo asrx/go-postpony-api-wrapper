@@ -2,6 +2,7 @@ package tests
 
 import (
 	"fmt"
+	"github.com/asrx/go-postpony-api-wrapper/src/Cancel"
 	"github.com/asrx/go-postpony-api-wrapper/src/ComplexType"
 	"github.com/asrx/go-postpony-api-wrapper/src/Rate"
 	"github.com/asrx/go-postpony-api-wrapper/src/Ship"
@@ -14,6 +15,7 @@ const (
 	_Key  = ""
 	_Pwd = ""
 	_Token = ""
+
 )
 
 var uc *ComplexType.UserCredential
@@ -155,4 +157,17 @@ func Test_ship(t *testing.T) {
 	fmt.Printf("Code: %s\n",shipReply.Code)
 	fmt.Printf("PresortNo: %s\n",shipReply.PresortNo)
 	fmt.Printf("ResidentialAddress: %v\n",shipReply.ResidentialAddress)
+}
+
+func Test_cancel(t *testing.T) {
+	cancelRequest := &Cancel.CancelShipRequst{
+		UserCredential: uc,
+		LabelId:        "17864161",
+	}
+
+	cancelReply,err := cancelRequest.ProcessCancel()
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Cancel Result: %v\n", cancelReply.Success)
 }
