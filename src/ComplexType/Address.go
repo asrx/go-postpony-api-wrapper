@@ -1,6 +1,9 @@
 package ComplexType
 
-import "github.com/beevik/etree"
+import (
+	"github.com/beevik/etree"
+	"strconv"
+)
 
 type Address struct {
 	NodeName string `xml:"-"`
@@ -15,6 +18,7 @@ type Address struct {
 	Zip4 string `xml:"Zip4,omitempty"`
 	CountryCode string `xml:"CountryCode"`
 	CountryName string `xml:"CountryName"`
+	IsResidentialAddress bool `xml:"IsResidentialAddress"`
 }
 
 func (addr *Address)ToNode(doc *etree.Element) *etree.Element {
@@ -60,6 +64,9 @@ func (addr *Address)ToNode(doc *etree.Element) *etree.Element {
 
 	countryName := node.CreateElement("CountryName")
 	countryName.CreateText(addr.CountryName)
+
+	IsResidentialAddress := node.CreateElement("IsResidentialAddress")
+	IsResidentialAddress.CreateText(strconv.FormatBool(addr.IsResidentialAddress))
 
 	return doc
 }

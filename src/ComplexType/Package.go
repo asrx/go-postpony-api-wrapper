@@ -18,6 +18,8 @@ type Package struct {
 	WeightOz float64 `xml:"WeightOz"`
 	Insurance float64 `xml:"Insurance"`
 	IsOurInsurance bool `xml:"IsOurInsurance"`
+
+	TrackNo string `xml:"TrackNo"`
 }
 
 func (pkg *Package) ToNode(n *etree.Element) *etree.Element {
@@ -58,6 +60,11 @@ func (pkg *Package) ToNode(n *etree.Element) *etree.Element {
 		isOurInsurance := node.CreateElement("IsOurInsurance")
 		isOurInsurance.CreateText(strconv.FormatBool(pkg.IsOurInsurance))
 	}
+
+	//if pkg.TrackNo != "" {
+	//	trackNo := node.CreateElement("TrackNo")
+	//	trackNo.CreateText(pkg.TrackNo)
+	//}
 
 	return n
 }
