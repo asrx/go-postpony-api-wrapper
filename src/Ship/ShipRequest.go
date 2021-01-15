@@ -15,7 +15,7 @@ const (
 	SignatureType_FedEx_Adult SignatureType = "Adult"
 	// 直接签名
 	SignatureType_FedEx_Direct  SignatureType = "Direct"
-	// 简介签名
+	// 间接签名
 	SignatureType_FedEx_Indirect SignatureType = "Indirect"
 	SignatureType_USPS_SignatureConfirmation SignatureType = "SignatureConfirmation"
 	SignatureType_UPS_Signature SignatureType = "Signature"
