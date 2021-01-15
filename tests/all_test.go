@@ -64,12 +64,12 @@ func init() {
 		Weight:			20,
 	})
 
-	pkgs = append(pkgs, &ComplexType.Package{
-		Length:         20,
-		Width:          21,
-		Height:         22,
-		Weight:			25,
-	})
+	//pkgs = append(pkgs, &ComplexType.Package{
+	//	Length:         20,
+	//	Width:          21,
+	//	Height:         22,
+	//	Weight:			25,
+	//})
 
 	//pkgs = append(pkgs, &ComplexType.Package{
 	//	Length:         15,
@@ -124,6 +124,8 @@ func Test_ship(t *testing.T) {
 			},
 			PackageItems: pkgs,
 			LbSize:       "S4X6",
+			// 签名类型
+			Signature: Ship.SignatureType_FedEx_Direct,
 		},
 		ShipType:       "FedExGround",// FedExHomeDelivery
 		AuthorizedKey:  _Token,
@@ -162,7 +164,7 @@ func Test_ship(t *testing.T) {
 func Test_cancel(t *testing.T) {
 	cancelRequest := &Cancel.CancelShipRequst{
 		UserCredential: uc,
-		LabelId:        "17864161",
+		LabelId:        "18665423",
 	}
 
 	cancelReply,err := cancelRequest.ProcessCancel()

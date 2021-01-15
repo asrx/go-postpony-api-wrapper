@@ -9,6 +9,19 @@ import (
 	"github.com/beevik/etree"
 )
 
+type SignatureType string
+const (
+	// 成人签名
+	SignatureType_FedEx_Adult SignatureType = "Adult"
+	// 直接签名
+	SignatureType_FedEx_Direct  SignatureType = "Direct"
+	// 简介签名
+	SignatureType_FedEx_Indirect SignatureType = "Indirect"
+	SignatureType_USPS_SignatureConfirmation SignatureType = "SignatureConfirmation"
+	SignatureType_UPS_Signature SignatureType = "Signature"
+	SignatureType_UPS_AdultSignature SignatureType = "AdultSignature"
+)
+
 type ShipRequest struct {
 	UserCredential  *ComplexType.UserCredential `xml:"UserCredential"`
 	RequstInfo		*RequstInfo `xml:"RequstInfo"`
@@ -21,7 +34,8 @@ type RequstInfo struct {
 	Recipient	*ComplexType.Address	`xml:"Recipient"`
 	Package		*ShipPackage			`xml:"Package"`
 	PackageItems []*ComplexType.Package	`xml:"PackageItems"`
-	LbSize		string			`xml:"LbSize"`
+	LbSize		string					`xml:"LbSize"`
+	Signature	SignatureType 			`xml:"Signature"`
 }
 
 type ShipPackage struct {
@@ -59,6 +73,9 @@ func (ship ShipRequest)ToNode(doc *etree.Document)(string, error)  {
 	//LbSize
 	lbSizeNode := requestInfo.CreateElement("LbSize")
 	lbSizeNode.CreateText(ship.RequstInfo.LbSize)
+	// Signature
+	signatureNode := requestInfo.CreateElement("Signature")
+	signatureNode.CreateText(string(ship.RequstInfo.Signature))
 
 	invoiceNumberNode := packageNode.CreateElement("InvoiceNumber")
 	invoiceNumberNode.CreateText(ship.RequstInfo.Package.InvoiceNumber)
