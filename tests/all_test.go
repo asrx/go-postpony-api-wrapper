@@ -15,7 +15,6 @@ const (
 	_Key  = ""
 	_Pwd = ""
 	_Token = ""
-
 )
 
 var uc *ComplexType.UserCredential
@@ -32,12 +31,12 @@ func init() {
 
 	shipper = &ComplexType.Address{
 		PersonName:          "Donovan",
-		CompanyName:         "ANL",
+		CompanyName:         "AMERICAN NEW LOGISTICS",
 		PhoneNumber:         "6262258083",
-		StreetLines:         []string{"16018 Adelante st Suite D"},
-		City:                "Irwindale",
+		StreetLines:         []string{"2440 S. Milliken Avenue"},
+		City:                "Ontario",
 		StateOrProvinceCode: "CA",
-		PostalCode:          "91702",
+		PostalCode:          "91761",
 		CountryCode:         "US",
 		//CountryName:		 "United States of America",
 		IsResidentialAddress: false,

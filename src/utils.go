@@ -1,6 +1,7 @@
 package src
 
 import (
+	"crypto/tls"
 	"fmt"
 	"io/ioutil"
 	"net/http"
@@ -14,9 +15,19 @@ func Float642String(f float64) string {
 
 
 func PostRequest(url string, xmlParam string) (body []byte, err error) {
-	resp, err := http.Post(url,
+	tr := &http.Transport{
+		TLSClientConfig:    &tls.Config{InsecureSkipVerify: true},
+	}
+	client := &http.Client{Transport: tr}
+
+	resp, err := client.Post(url,
 		"application/xml",
 		strings.NewReader(xmlParam))
+
+	//resp, err := http.Post(url,
+	//	"application/xml",
+	//	strings.NewReader(xmlParam))
+
 	if err != nil {
 		fmt.Println(err)
 	}
